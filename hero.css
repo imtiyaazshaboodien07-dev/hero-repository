@@ -1,0 +1,323 @@
+* {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Poppins', sans-serif; 
+    background: #0a0a0a; 
+    color: #e8e8e8; 
+    overflow-x: hidden; 
+}
+
+.navbar {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 60px; 
+    background: black; 
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
+    z-index: 10;
+    flex-direction: column;
+}
+
+.logo {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 2rem; 
+    color: #b84aff; 
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    display: flex; 
+    gap: 25px; 
+    margin-top: 10px;
+}
+
+.nav-links a {
+    font-family: 'UnifrakturCook', cursive;
+    color: #a8ff00; 
+    text-decoration: none;
+    transition: color .3s, transform .3s, text-shadow .3s;
+}
+
+.nav-links a:hover {
+    color: #b84aff; 
+    transform: scale(1.1); 
+    text-shadow: 0 0 8px #b84aff, 0 0 15px #a8ff00;
+}
+
+.nav-separator {
+    width: 100%; 
+    height: 4px; 
+    margin-top: 10px;
+    background: linear-gradient(90deg, #680082, #d4ff00, #680082);
+    box-shadow: 0 0 15px #d4ff00, 0 0 25px #680082;
+    border-radius: 2px;
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(270deg, #680082, #b84aff, #a8ff00, #43009e); 
+    background-size: 800% 800%;
+    animation: gradientFlow 15s ease infinite;
+    overflow: hidden;
+}
+
+@keyframes gradientFlow {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+    z-index: 1;
+}
+
+.hero-img {
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    opacity: 0.25; 
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+.hero-content h1 {
+    font-family: 'UnifrakturCook', cursive;
+    font-size: 4rem;
+    text-shadow: 0 0 15px #b84aff, 0 0 30px #a8ff00;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin: 10px 0 20px 0;
+    text-shadow: 0 0 8px black;
+}
+
+.cta-btn {
+    background-color: #a8ff00;
+    color: black;
+    padding: 12px 30px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all .3s ease;
+    animation: pulse 2s infinite;
+}
+
+.cta-btn:hover {
+    background: #b84aff;
+    color: white;
+    transform: scale(1.05);
+    animation-play-state: paused;
+    text-shadow: 0 0 10px #b84aff, 0 0 20px #a8ff00;
+}
+
+@keyframes pulse {
+    0% {transform: scale(1);}
+    50% {transform: scale(1.2);}
+    100% {transform: scale(1);}
+}
+
+/* ===== Products Section ===== */
+.products { 
+    padding: 140px 60px; 
+}
+
+.page-title { 
+    text-align: center; 
+    font-size: 2rem; 
+    margin-bottom: 40px; 
+    font-family: 'UnifrakturCook', cursive; 
+    text-shadow: 0 0 5px #a8ff00; 
+}
+
+.product-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 30px; 
+}
+
+.product-card {
+    background: black; 
+    border-radius: 10px; 
+    padding: 20px; 
+    text-align: center; 
+    transition: transform .4s ease, box-shadow .3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 0 15px #b84aff, 0 0 30px #a8ff00; 
+}
+
+.product-card img {
+    width: 100%; 
+    border-radius: 5px; 
+    margin-bottom: 15px; 
+    transition: 0.3s; 
+}
+
+.product-card img:hover {
+    box-shadow: 0 0 15px #a8ff00, 0 0 25px #b84aff; 
+}
+
+.product-card h3 { 
+    font-family: 'UnifrakturCook', cursive; 
+    color: #b84aff; 
+    margin-bottom: 10px;
+ }
+
+.product-desc {
+    color: #c5c5c5; 
+    font-size: 0.9rem;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background-color: rgba(0,0,0,0.6);
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 10px; 
+    display: block; 
+    position: relative; 
+}
+
+.product-card:hover .product-desc {
+    opacity: 1;
+}
+
+
+.cart-container {
+    position: fixed; 
+    top: 120px; 
+    right: 20px; 
+    width: 150px; 
+    z-index: 100; 
+}
+
+.cart-icon {
+    background-color: #1a0022; 
+    border: 2px solid #680082; 
+    color: #a8ff00; 
+    padding: 10px 15px; 
+    border-radius: 10px;
+    cursor: pointer; 
+    font-size: 1.2rem; 
+    text-align: center; 
+    transition: 0.3s;
+}
+
+.cart-icon:hover {
+    box-shadow: 0 0 15px #a8ff00,0 0 30px #b84aff; 
+    transform: scale(1.1); 
+}
+
+#cartCount { 
+    background-color: #a8ff00; 
+    color: #1a0022; 
+    border-radius: 50%; 
+    padding: 2px 7px; 
+    margin-left: 5px; 
+    font-weight: bold; 
+}
+
+.cart-preview {
+    position: fixed; 
+    top: 70px; 
+    right: -300px; 
+    background-color: #1a0022; 
+    border: 2px solid #680082;
+    border-radius: 10px; 
+    padding: 15px; 
+    width: 250px; 
+    box-shadow: 0 0 25px rgba(168,255,0,0.5);
+    opacity: 0; 
+    pointer-events: none; 
+    transition: all 0.5s ease;
+}
+
+.cart-container:hover .cart-preview { 
+    right: 20px; 
+    opacity: 1; 
+    pointer-events: all; 
+}
+
+.cart-preview h3 { 
+    color: #a8ff00; 
+    margin-bottom: 10px; 
+    text-align: center; 
+}
+
+#cartItems {
+    list-style: none; 
+    max-height: 200px; 
+    overflow-y: auto; 
+    padding: 0; 
+}
+
+#cartItems li { 
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 8px; 
+    font-size: 0.9rem; 
+    color: #ccc; 
+}
+
+#cartItems img { 
+    width: 40px; 
+    height: auto; 
+    margin-right: 10px; 
+    border-radius: 5px; 
+    border: 1px solid #680082; 
+}
+
+#cartItems .remove-btn {
+    margin-left: auto; 
+    background: #680082; 
+    border: none; 
+    color: #a8ff00; 
+    cursor: pointer; 
+    border-radius: 4px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #3e8e41;
+  color: #d4ff00;
+  box-shadow: 0 0 15px #d4ff00; 
+  transform: scale(1.05);
+}
